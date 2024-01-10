@@ -1,0 +1,62 @@
+/* App.css */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background-color: #fbfbfb;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+}
+
+.button {
+  background-color: #55a69c;
+  border-radius: 8px;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  margin: 5px;
+  cursor: pointer;
+  transition: all ease-in-out 0.2s;
+}
+
+.component-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ComponentA.module.css */
+
+/* ComponentB.module.css */
+.component {
+  background-color: #cce4e1;
+  padding: 30px;
+  margin: 20px;
+  font-size: 20px;
+  border: 1px solid #ffffff;
+  border-radius: 5px;
+  color: #121212;
+}
+
+/* Create similar CSS module files for ComponentC and ComponentD */
+@media (max-width: 600px) {
+  .appContainer {
+    /* Adjust styles for smaller screens */
+    padding: 10px;
+  }
+
+  .buttonContainer {
+    /* Adjust styles for smaller screens */
+    flex-direction: column;
+  }
+
+  .button {
+    /* Adjust button styles for smaller screens */
+    margin: 5px 0;
+    width: 100%;
+  }
+}

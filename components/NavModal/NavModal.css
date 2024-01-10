@@ -1,0 +1,60 @@
+.Main_modal {
+  position: fixed !important;
+
+  top: 14%;
+  right: -50%; /* Start from the right outside the viewport */
+  left: 100%; /* Center the modal horizontally */
+  /* Adjust for centering using transform */
+  background: #e0e0ca;
+  height: 100%;
+  z-index: 101;
+  transition: right 2s ease; /* Transition the 'right' property */
+}
+
+.Main_modal.show {
+  transition: 0.5s ease;
+  right: 0;
+  left: 0; /* Move to the center of the viewport when visible */
+  transform: translateX(0); /* Adjust for centering using transform */
+}
+
+.Modal_container {
+  width: 92%;
+  margin: 30px 0px 30px 30px;
+}
+
+.Modal_list {
+  display: flex;
+  flex-direction: column;
+}
+
+.Modal_list li {
+  color: #fbfbfb;
+  font-size: 48px;
+
+  font-weight: 700;
+  letter-spacing: 0.24px;
+  word-wrap: break-word;
+  border-bottom: 2px solid #003c34;
+  padding: 5px 0px;
+}
+
+@media screen and (min-width: 768px) {
+  .Main_modal {
+    position: absolute;
+    top: 13%;
+  }
+
+  .Modal_container {
+    width: 90%;
+    margin: 30px 30px 30px 30px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .Modal_list li {
+    font-size: 20px;
+  }
+  .Main_modal {
+    height: 313px;
+  }
+}
