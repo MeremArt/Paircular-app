@@ -3,9 +3,11 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
 import "./SignIn.css";
+import { useRouter } from "next/navigation";
 import CircularProgress from "@mui/material/CircularProgress";
-
+const signInurl = "http://localhost:7000/api/v1/paircular-holmes/signin";
 const SignIn = ({ isOpen, onClose }) => {
+  const router = useRouter();
   const [isModalOpen, setIsModalOpen] = useState(isOpen);
   const [isVisible, setIsVisible] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -42,16 +44,25 @@ const SignIn = ({ isOpen, onClose }) => {
 
     try {
       // Make API request using Axios
-      const response = await axios.post(
-        "https://paircular-server-vdwt.onrender.com/api/v1/paircular-holmes/signin",
-        formData
-      );
+      const response = await axios.post(signInurl, formData, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
 
-      // Assuming your API returns a success message
-      toast.success(response.data.message);
+      if (response.status === 200) {
+        alert("Welcome back");
+
+        router.push(`/dashboard`);
+      } else {
+        console.log(response.statusText);
+      }
     } catch (error) {
-      // Handle errors
-      toast.error("Error signing in. Please try again.");
+      if (error.response && error.response.status === 409) {
+        alert("Email address is already in use. Please use a different email.");
+      } else {
+        alert("An error occurred. Please try again later.");
+      }
     } finally {
       // Hide loader and close modal
       setIsLoading(false);
