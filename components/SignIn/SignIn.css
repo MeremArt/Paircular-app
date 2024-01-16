@@ -16,7 +16,7 @@
   bottom: 80px;
   background-color: #005441;
   margin: 15% auto;
-  padding: 20px;
+  padding: 40px;
   border: 2px solid #fbfbfb;
   display: flex;
   flex-direction: column;
@@ -83,6 +83,7 @@
   width: 100%;
   padding: 10px;
   margin: 5px 0;
+  border-radius: 8px;
   box-sizing: border-box;
 }
 

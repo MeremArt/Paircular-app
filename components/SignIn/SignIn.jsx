@@ -96,6 +96,7 @@ const SignIn = ({ isOpen, onClose }) => {
               className="input_form"
               name="email"
               value={formData.email}
+              autocomplete="username"
               placeholder="Enter your email address..."
               onChange={handleInputChange}
               required
