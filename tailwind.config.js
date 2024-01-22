@@ -13,6 +13,7 @@ module.exports = {
         horror: "#80BCB5",
         dashbg: "#002824",
         dashfix: "#003D36",
+        hover: "#F5F5DC",
       },
       fontFamily: {
         sans: ["poppins", "sans-serif"],

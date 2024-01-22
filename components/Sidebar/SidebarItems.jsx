@@ -45,10 +45,7 @@ export function SidebarItems() {
               <div>
                 <div
                   className={`flex h-8 w-8 items-center justify-center 
-                    ${
-                      section === currentSection &&
-                      "rounded-full bg-fuchsia-800"
-                    }`}
+                    ${section === currentSection && "rounded-full bg-dashfix"}`}
                 >
                   <span>{icon}</span>
                 </div>
