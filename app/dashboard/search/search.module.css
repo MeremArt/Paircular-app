@@ -26,6 +26,7 @@
   padding: 8px;
   margin: 0 4px 0 0;
   border: 1px solid #f5f5dc;
+  color: black;
   border-radius: 5px;
   height: 50px;
 }
@@ -35,12 +36,17 @@
   min-height: 50px;
   min-width: 10px;
   word-wrap: nowrap;
-  background: #000;
-  color: #fff;
-  border: 1px solid #fff;
+  background: #002824;
+  color: #f5f5dc;
+  align-items: center;
+  display: flex;
+  gap: 2px;
   border-radius: 5px;
 }
-
+.searchIcon {
+  display: flex;
+  margin: auto;
+}
 .inputstyle {
   order: 0;
   align-self: auto;
