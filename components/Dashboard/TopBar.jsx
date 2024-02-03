@@ -62,7 +62,7 @@ export function TopBar() {
             <a href="#" className="relative block">
               <img
                 alt="profile"
-                src="/images/1.jpg"
+                src="https://res.cloudinary.com/dtfvdjvyr/image/upload/v1706017179/Icon_Accounting_Clipart_Hd_PNG_Account_Avatar_User_Flat_Color_Icon_Vector_Icon_Banner_Templ_User_Icons_Avatar_Icons_Icons_Icons_PNG_Image_For_Free_Download_ue7hug.jpg"
                 className="mx-auto h-10 w-10 rounded-full object-cover"
               />
             </a>
