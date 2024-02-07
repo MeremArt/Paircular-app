@@ -120,6 +120,12 @@ const SignIn = ({ isOpen, onClose }) => {
                 "Sign In"
               )}
             </button>
+            <br />
+            <center>
+              <span tye="submit" className="text-hover  ">
+                Forgot password ?
+              </span>
+            </center>
           </form>
         </>
       </div>
