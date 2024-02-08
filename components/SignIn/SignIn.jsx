@@ -1,7 +1,7 @@
 // SignUpModal.js
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { toast } from "react-toastify";
+
 import "./SignIn.css";
 import { useRouter } from "next/navigation";
 import CircularProgress from "@mui/material/CircularProgress";
