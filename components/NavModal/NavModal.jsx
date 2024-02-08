@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./NavModal.css";
 import SignUpModal from "../SignUp/SignUpModal";
-import SignIn from "../SignIn/SignIn";
+
 export default function Navmodal({ fire, setToggleMenu }) {
   const [isSignUpModalOpen, setIsSignUpModalOpen] = useState(false);
   const [isSignInModalOpen, setIsSignInModalOpen] = useState(false);
