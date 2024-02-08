@@ -3,7 +3,7 @@ import Image from "next/image";
 import logo from "../../public/pair.svg";
 import Hamburger from "../../assest/Hamburger1.svg";
 import Close from "../../assest/Close.svg";
-import Navmodal from "../NavModal/NavModal";
+// import Navmodal from "../NavModal/NavModal";
 import "./Navbar.css";
 const Navbar = ({ links, fire }) => {
   const [showLinks, setShowLinks] = useState(false);
