@@ -30,40 +30,39 @@ function App() {
       <br />
       <br />
       <br />
-      <br />
 
-      <br />
       <section>
         <section>
-          <div className="container">
-            <div className="row">
-              <div className="col-lg-6">
-                <h2 className="texth2">
-                  Elevate Your Living <br /> Experience, Expand <br /> Your
-                  Horizons
-                </h2>
+          <div className="container flex flex-col-reverse mx-auto p-6 lg:flex-row">
+            <div className="flex flex-col space-y-12 mb-44 lg:mt-16 lg:w-1/2 xl:mb-52">
+              <h2 className="texth2">
+                Elevate Your Living <br /> Experience, Expand <br /> Your
+                Horizons
+              </h2>
 
-                <p>
-                  We believe that your home should be an extension of your
-                  unique personality, a place where every corner tells a story,
-                  and each room resonates with your individuality. At paircular
-                  holmes, we meticulously craft experiences, connecting you with
-                  spaces that not only fulfill your housing needs but also
-                  elevate your entire living experience.
-                </p>
+              <p>
+                We believe that your home should be an extension of your unique
+                personality, a place where every corner tells a story, and each
+                room resonates with your individuality. At paircular holmes, we
+                meticulously craft experiences, connecting you with spaces that
+                not only fulfill your housing needs but also elevate your entire
+                living experience.
+              </p>
 
-                <button className="waitlist2" onClick={openModal}>
-                  Get Started
-                </button>
-              </div>
-              <div className="col-lg-6">
-                <div>
-                  <img
-                    className="imgpair"
-                    src="https://res.cloudinary.com/dtfvdjvyr/image/upload/v1702583181/piarhomes_trjmzh.png"
-                  />
-                </div>
-              </div>
+              <button className="waitlist2" onClick={openModal}>
+                Get Started
+              </button>
+            </div>
+
+            <div className="mb-24 mx-auto md:w-180 lg:mb-0 lg:w-1/2 ">
+              <Image
+                className="w-90 ml-20 "
+                src="https://res.cloudinary.com/dtfvdjvyr/image/upload/v1702583181/piarhomes_trjmzh.png"
+                alt="feature"
+                loading="lazy"
+                width={500}
+                height={600}
+              />
             </div>
           </div>
         </section>
@@ -72,9 +71,9 @@ function App() {
         <br />
         <section className="carousel_section">
           <br />
-          <div className="container">
-            <div className="row">
-              <h1 className="findpair">
+          <div className="container mx-auto">
+            <div className="">
+              <h1 className="findpair mx-5">
                 Find Harmony in Every Home
                 <br /> Discover Paircular Living{" "}
                 <img src="https://res.cloudinary.com/dtfvdjvyr/image/upload/v1702586284/DIS_w2zlsl.svg" />
@@ -82,7 +81,10 @@ function App() {
             </div>
           </div>
           <br />
-          <AutoPlaySlide />
+          <div className="container mx-auto">
+            <AutoPlaySlide />
+          </div>
+
           <br />
         </section>
       </section>
@@ -93,30 +95,30 @@ function App() {
       <br />
       <br />
       <section>
-        <div className="container">
-          <div className="row">
-            <div className="col-lg-6">
-              <div>
-                <img
-                  className="imgpair2"
-                  src="https://res.cloudinary.com/dtfvdjvyr/image/upload/v1702587330/pair2_dxwo4t.png"
-                />
-              </div>
+        <div className="container flex flex-col-reverse mx-auto p-6 lg:flex-row ">
+          <div className="mb-24 mx-auto md:w-180 lg:mb-0 lg:w-1/2 ">
+            <div>
+              <Image
+                className="w-90 "
+                src="https://res.cloudinary.com/dtfvdjvyr/image/upload/v1702587330/pair2_dxwo4t.png"
+                width={600}
+                height={600}
+              />
             </div>
-            <div className="col-lg-6">
-              <h2 className="text2">
-                Your Ideal Home Awaits Find it with{" "}
-                <span style={{ color: "#E0E0CA" }}> Paircular Holmes.</span>
-              </h2>
-              <p className="textp ">
-                At paircular holmes, our mission transcends the conventional. We
-                aspire to be your premier destination for comprehensive home
-                solutions on a global scale. With a commitment to excellence, we
-                aim to redefine the way you perceive and engage with the concept
-                of home. Whether it's finding the perfect abode, securing an
-                ideal roommate, or transforming your living spaces.
-              </p>
-            </div>
+          </div>
+          <div className="flex flex-col space-y-5 mb-44 lg:mt-16 lg:w-1/2 xl:mb-52 ">
+            <h2 className="text2">
+              Your Ideal Home Awaits Find it with{" "}
+              <span style={{ color: "#E0E0CA" }}> Paircular Holmes.</span>
+            </h2>
+            <p className="textp ">
+              At paircular holmes, our mission transcends the conventional. We
+              aspire to be your premier destination for comprehensive home
+              solutions on a global scale. With a commitment to excellence, we
+              aim to redefine the way you perceive and engage with the concept
+              of home. Whether it's finding the perfect abode, securing an ideal
+              roommate, or transforming your living spaces.
+            </p>
           </div>
         </div>
       </section>
@@ -149,7 +151,7 @@ function App() {
       <br />
 
       <section>
-        <div className="container">
+        <div className="container flex  p-6">
           <div className="Community">
             <br />
             <br />
@@ -183,17 +185,13 @@ function App() {
           <section className="footer">
             <br />
             <div className="container">
-              <div className="row">
-                <div className="col-lg-4 col-5">
-                  <h2>Email address</h2>
-                  <p>paircularholmes@gmail.com</p>
-                </div>
-                <div className="col-lg-4 col-2">
+              <div className="">
+                <div className="">
                   <center>
                     <svg
                       className="hotit"
-                      width="71"
-                      height="83"
+                      width="50"
+                      height="63"
                       viewBox="0 0 71 83"
                       fill="none"
                       xmlns="http://www.w3.org/2000/svg"
@@ -241,7 +239,13 @@ function App() {
                     </svg>
                   </center>
                 </div>
-                <div className="col-lg-4 col-5">
+                <center>
+                  <div className="">
+                    <p> ©Paircularholmes.com 2024 </p>
+                  </div>
+                </center>
+
+                {/* <div className="">
                   <h1>
                     ©Paircularholmes.com 2023 <br />
                     <br />{" "}
@@ -251,7 +255,7 @@ function App() {
                       src="https://res.cloudinary.com/dtfvdjvyr/image/upload/v1702642071/TwitterX_c2hqnm.svg"
                     />
                   </h1>
-                </div>
+                </div> */}
               </div>
             </div>
           </section>
