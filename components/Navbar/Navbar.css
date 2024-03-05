@@ -69,10 +69,10 @@ a {
 }
 .logo {
   height: 3rem;
-  margin-left: 60px;
+  margin-left: 10px;
 }
 .fix-log {
-  margin-right: 60px;
+  margin-right: 10px;
 }
 .holy_bean {
   color: var(--clr-grey-3);

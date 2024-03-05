@@ -34,7 +34,7 @@ function App() {
       <section>
         <section>
           <div className="container flex flex-col-reverse mx-auto p-6 lg:flex-row">
-            <div className="flex flex-col space-y-12 mb-44 lg:mt-16 lg:w-1/2 xl:mb-52">
+            <div className="flex flex-col space-y-6 mb-32 lg:mt-16 lg:w-1/2 xl:mb-52">
               <h2 className="texth2">
                 Elevate Your Living <br /> Experience, Expand <br /> Your
                 Horizons
@@ -56,7 +56,7 @@ function App() {
 
             <div className="mb-24 mx-auto md:w-180 lg:mb-0 lg:w-1/2 ">
               <Image
-                className="w-90 ml-20 "
+                className="w-90 ml-28  "
                 src="https://res.cloudinary.com/dtfvdjvyr/image/upload/v1702583181/piarhomes_trjmzh.png"
                 alt="feature"
                 loading="lazy"
