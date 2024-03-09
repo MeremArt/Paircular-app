@@ -36,7 +36,9 @@ const SignIn = ({ isOpen, onClose }) => {
       [name]: value,
     }));
   };
-
+  const fogortpassword = () => {
+    router.push(`/forgotpassword`);
+  };
   const handleSubmit = async (e) => {
     e.preventDefault();
     // Show loader
@@ -122,7 +124,11 @@ const SignIn = ({ isOpen, onClose }) => {
             </button>
             <br />
             <center>
-              <span tye="submit" className="text-hover  ">
+              <span
+                onClick={fogortpassword}
+                type="submit"
+                className="text-hover cursor-pointer hover:underline  "
+              >
                 Forgot password ?
               </span>
             </center>
