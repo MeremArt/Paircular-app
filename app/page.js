@@ -162,9 +162,8 @@ function App() {
               <br />
               <p className="container">
                 Stay in the loop with paircular holmes! Be the first to receive
+                <br />
                 the latest updates, exclusive offers, and special promotions.
-                Join our community and elevate your living with paircular
-                holmes.
               </p>
               <br id="HIDE" />
 
