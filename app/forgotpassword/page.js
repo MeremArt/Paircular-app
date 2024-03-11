@@ -2,11 +2,13 @@
 import Image from "next/image";
 import React, { useState } from "react";
 import axios from "axios";
+import CircularProgress from "@mui/material/CircularProgress";
 
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
 const page = () => {
+  const [isLoading, setIsLoading] = useState(false);
   const [email, setEmail] = useState("");
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
@@ -130,7 +132,11 @@ const page = () => {
               type="submit"
               className="bg-hover  text-wizard font-bold w-full py-2 px-4 rounded focus:outline-none focus:shadow-outline"
             >
-              Send Reset Link
+              {isLoading ? (
+                <CircularProgress size={20} color="inherit" />
+              ) : (
+                "Done"
+              )}
             </button>
           </form>
         </div>
