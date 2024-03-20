@@ -21,6 +21,7 @@ const Reset = () => {
       const token = searchParams.get("token");
       if (token) {
         setToken(token);
+        console.log(token);
       }
     }
   }, []);
