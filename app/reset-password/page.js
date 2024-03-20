@@ -22,6 +22,8 @@ const Reset = () => {
       if (token) {
         setToken(token);
         console.log(token);
+      } else {
+        console.log(`token not found`);
       }
     }
   }, []);
