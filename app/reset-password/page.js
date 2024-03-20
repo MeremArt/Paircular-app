@@ -1,6 +1,4 @@
-"use client";
-import Image from "next/image";
-import React, { useState, useEffect } from "react"; // Import useEffect
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useRouter } from "next/router";
 
@@ -8,15 +6,10 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
 
-const page = () => {
+const Page = () => {
   const router = useRouter();
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-
-  // Define handleConfirmPasswordChange function
-  const handleConfirmPasswordChange = (e) => {
-    setConfirmPassword(e.target.value);
-  };
 
   useEffect(() => {
     // Ensure that the code related to useRouter is executed only in client-side context
@@ -27,7 +20,7 @@ const page = () => {
       }
       console.log(token);
     }
-  }, [router.query.token]); // Add handleConfirmPasswordChange to dependency array
+  }, [router.query.token]);
 
   const handleEmailChange = (e) => {
     setPassword(e.target.value);
