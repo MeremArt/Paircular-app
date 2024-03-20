@@ -20,6 +20,7 @@ const page = () => {
       if (token) {
         localStorage.setItem("passwordResetToken", token);
       }
+      console.log(token);
     } catch (error) {
       console.error("Error extracting token:", error);
     }
