@@ -19,16 +19,15 @@ const page = () => {
   };
 
   useEffect(() => {
-    try {
+    // Ensure that the code related to useRouter is executed only in client-side context
+    if (typeof window !== "undefined") {
       const token = router.query.token;
       if (token) {
         localStorage.setItem("passwordResetToken", token);
       }
       console.log(token);
-    } catch (error) {
-      console.error("Error extracting token:", error);
     }
-  }, [router.query.token, handleConfirmPasswordChange]); // Add handleConfirmPasswordChange to dependency array
+  }, [router.query.token]); // Add handleConfirmPasswordChange to dependency array
 
   const handleEmailChange = (e) => {
     setPassword(e.target.value);
