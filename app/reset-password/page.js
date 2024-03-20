@@ -2,20 +2,33 @@
 import Image from "next/image";
 import React, { useState } from "react";
 import axios from "axios";
+import { useRouter } from "next/router";
 
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
 const page = () => {
+  const router = useRouter(); // Initialize useRouter hook
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const handleConfirmPasswordChange = (e) => {
-    setConfirmPassword(e.target.value);
-  };
+
+  // Extract token from URL and store it in local storage
+  useEffect(() => {
+    try {
+      // Extract token from URL and store it in local storage
+      const token = router.query.token;
+      if (token) {
+        localStorage.setItem("passwordResetToken", token);
+      }
+    } catch (error) {
+      console.error("Error extracting token:", error);
+    }
+  }, [router.query.token]);
 
   const handleEmailChange = (e) => {
     setPassword(e.target.value);
   };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (password !== confirmPassword) {
@@ -31,11 +44,12 @@ const page = () => {
     }
 
     try {
-      const response = await axios.post(
-        "https://paircular-server-vdwt.onrender.com/api/v1/auth/reset-password/${resetToken}",
-        {
-          password: password,
-        }
+      const token = localStorage.getItem("passwordResetToken");
+
+      console.log(token); // Get token from local storage
+      const response = await axios.patch(
+        `https://paircular-app-git-main-meremart.vercel.app/api/v1/auth/reset-password/${token}`,
+        { password: password }
       );
 
       if (response.status === 200) {
@@ -62,7 +76,6 @@ const page = () => {
       });
     }
   };
-
   return (
     <main>
       <div className="flex items-center justify-center min-h-screen ">
@@ -136,6 +149,7 @@ const page = () => {
                 id="password"
                 name="password"
                 value={password}
+                autocomplete="current-password"
                 onChange={handleEmailChange}
                 className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                 placeholder="Enter your new password"
