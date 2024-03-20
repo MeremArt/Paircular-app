@@ -44,7 +44,9 @@ const Reset = () => {
 
     try {
       const token = localStorage.getItem("passwordResetToken");
-      console.log(token);
+      if (!token) {
+        throw new Error("Token not found");
+      }
 
       const response = await axios.patch(
         `https://paircular-app-git-main-meremart.vercel.app/api/v1/auth/reset-password/${token}`,
