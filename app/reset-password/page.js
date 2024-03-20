@@ -1,21 +1,25 @@
 "use client";
 import Image from "next/image";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react"; // Import useEffect
 import axios from "axios";
 import { useRouter } from "next/router";
 
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
+
 const page = () => {
-  const router = useRouter(); // Initialize useRouter hook
+  const router = useRouter();
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
-  // Extract token from URL and store it in local storage
+  // Define handleConfirmPasswordChange function
+  const handleConfirmPasswordChange = (e) => {
+    setConfirmPassword(e.target.value);
+  };
+
   useEffect(() => {
     try {
-      // Extract token from URL and store it in local storage
       const token = router.query.token;
       if (token) {
         localStorage.setItem("passwordResetToken", token);
@@ -24,7 +28,7 @@ const page = () => {
     } catch (error) {
       console.error("Error extracting token:", error);
     }
-  }, [router.query.token]);
+  }, [router.query.token, handleConfirmPasswordChange]); // Add handleConfirmPasswordChange to dependency array
 
   const handleEmailChange = (e) => {
     setPassword(e.target.value);
@@ -46,18 +50,17 @@ const page = () => {
 
     try {
       const token = localStorage.getItem("passwordResetToken");
+      console.log(token);
 
-      console.log(token); // Get token from local storage
       const response = await axios.patch(
         `https://paircular-app-git-main-meremart.vercel.app/api/v1/auth/reset-password/${token}`,
         { password: password }
       );
 
       if (response.status === 200) {
-        // Show success toast
         toast.success("Password changed successfully", {
           position: "top-right",
-          autoClose: 5000, // Close the toast after 5 seconds
+          autoClose: 5000,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,
@@ -66,7 +69,6 @@ const page = () => {
         console.log("success");
       }
     } catch (error) {
-      // Show error toast
       toast.error("Error changing password. Please try again.", {
         position: "top-right",
         autoClose: 5000,
@@ -77,6 +79,7 @@ const page = () => {
       });
     }
   };
+
   return (
     <main>
       <div className="flex items-center justify-center min-h-screen ">
