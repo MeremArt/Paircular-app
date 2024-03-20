@@ -13,16 +13,15 @@ const Reset = () => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
-  useEffect(() => {
-    // Ensure that the code related to useRouter is executed only in client-side context
-    if (typeof window !== "undefined") {
-      const token = router.query.token;
-      if (token) {
-        localStorage.setItem("passwordResetToken", token);
-      }
-      console.log(token);
-    }
-  }, [router.query.token]);
+  // useEffect(() => {
+  //   if (typeof window !== "undefined") {
+  //     const token = router.query.token;
+  //     if (token) {
+  //       localStorage.setItem("passwordResetToken", token);
+  //     }
+  //     console.log(token);
+  //   }
+  // }, [router.query.token]);
 
   const handleEmailChange = (e) => {
     setPassword(e.target.value);
@@ -47,7 +46,7 @@ const Reset = () => {
     }
 
     try {
-      const token = localStorage.getItem("passwordResetToken");
+      // const token = localStorage.getItem("passwordResetToken");
       if (!token) {
         throw new Error("Token not found");
       }
