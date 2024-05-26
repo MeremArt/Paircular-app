@@ -1,9 +1,10 @@
-// Card.js
 import React, { useState } from "react";
 import { Card as BootstrapCard, Button, Modal } from "react-bootstrap";
 import styles from "./card.module.css"; // Your custom styles
 
-const Card = ({ location, profession, socialMedia, imageUrl }) => {
+const Card = ({ data }) => {
+  console.log("Data:", data); // Log the received data
+
   const [showImage, setShowImage] = useState(false);
 
   const handleImageClick = () => {
@@ -14,13 +15,16 @@ const Card = ({ location, profession, socialMedia, imageUrl }) => {
     setShowImage(false);
   };
 
-  // Dummy data for testing
-  const dummyData = {
-    location: location || "Dummy Location",
-    profession: profession || "Dummy Profession",
-    socialMedia: socialMedia || "@dummy",
-    imageUrl: imageUrl || "https://via.placeholder.com/150", // Placeholder image URL
-  };
+  // Ensure data is provided and has required fields
+  if (
+    !data ||
+    !data.location ||
+    !data.profession ||
+    !data.socialMedia ||
+    !data.imageUrl
+  ) {
+    return null; // Return null if data is missing or incomplete
+  }
 
   return (
     <>
@@ -30,21 +34,19 @@ const Card = ({ location, profession, socialMedia, imageUrl }) => {
       >
         <BootstrapCard.Img
           variant="top"
-          src={dummyData.imageUrl}
+          src={data.imageUrl}
           alt="Card image"
           className={styles.cardImage}
         />
         <BootstrapCard.Body>
           <BootstrapCard.Title className={styles.cardTitle}>
-            {dummyData.profession}
+            {data.profession}
           </BootstrapCard.Title>
           <BootstrapCard.Text className={styles.cardText}>
-            <span className={styles.location}>
-              Location: {dummyData.location}
-            </span>
+            <span className={styles.location}>Location: {data.location}</span>
             <br />
             <span className={styles.socialMedia}>
-              Social Media: {dummyData.socialMedia}
+              Social Media: {data.socialMedia}
             </span>
           </BootstrapCard.Text>
           <Button
@@ -63,7 +65,7 @@ const Card = ({ location, profession, socialMedia, imageUrl }) => {
         </Modal.Header>
         <Modal.Body>
           <img
-            src={dummyData.imageUrl}
+            src={data.imageUrl}
             alt="Card image"
             className={styles.modalImage}
           />
