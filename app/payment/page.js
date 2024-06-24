@@ -12,7 +12,7 @@ function classNames(...classes) {
 }
 
 const Page = () => {
-  const [amount] = useState("10000");
+  const [amount] = useState("10");
   const [email] = useState("ugofranklin22@gmil.com");
   const [fullName] = useState("Ugo Chinemerem Franklin");
   const [authorizationUrl, setAuthorizationUrl] = useState("");
