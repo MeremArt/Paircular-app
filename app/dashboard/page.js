@@ -220,7 +220,7 @@ const Dashboard = () => {
                 <strong>Location:</strong> {result.location}
               </p>
               <p className="text-sm"> {result.description}</p>
-              <Link href="/location">
+              <Link href="/payment">
                 <button className="bg-wizard hover:bg-hover hover:text-black mt-2 text-white font-bold py-2 px-4 rounded">
                   Subscribe for More Details
                 </button>

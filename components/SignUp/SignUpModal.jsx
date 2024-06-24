@@ -5,7 +5,8 @@ import "./SignUpModal.css";
 import { useRouter } from "next/navigation";
 import CircularProgress from "@mui/material/CircularProgress";
 
-const url = "http://localhost:7000/api/v1/paircular-holmes/signup";
+const url =
+  "https://paircular-server-vdwt.onrender.com/api/v1/paircular-holmes/signup";
 const SignUpModal = ({ isOpen, onClose }) => {
   const router = useRouter();
   const [isModalOpen, setIsModalOpen] = useState(isOpen);

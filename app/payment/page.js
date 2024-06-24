@@ -5,20 +5,47 @@ import { StarIcon } from "@heroicons/react/20/solid";
 import { MinusIcon, PlusIcon } from "@heroicons/react/24/outline";
 import Checkout from "@/components/checkout/checkout";
 import { useStateContext } from "@/context/Context";
+import axios, { AxiosResponse } from "axios";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
 const Page = () => {
+  const [amount] = useState("10000");
+  const [email] = useState("ugofranklin22@gmil.com");
+  const [fullName] = useState("Ugo Chinemerem Franklin");
+  const [authorizationUrl, setAuthorizationUrl] = useState("");
   const [quantity, setQuantity] = useState(1);
   const [open, setOpen] = useState(false);
 
   const { prod } = useStateContext();
 
-  const handleRedirect = () => {
-    window.location.href =
-      "https://paircular-server-vdwt.onrender.com/api/v1/paircular-holmes/payment";
+  useEffect(() => {
+    postData();
+  }, []);
+
+  const postData = async () => {
+    try {
+      const response = await axios.post(
+        "https://paircular-server-vdwt.onrender.com/api/v1/paircular-holmes/payment/",
+        {
+          amount: amount,
+          email: email,
+          full_name: fullName,
+        }
+      );
+
+      const url = response.data.data.data.authorization_url;
+      setAuthorizationUrl(url);
+      console.log("Authorization URL:", url);
+    } catch (error) {
+      console.error("There was an error making the POST request!", error);
+    }
+  };
+
+  const handleButtonClick = () => {
+    window.location.href = authorizationUrl;
   };
 
   const [product, setProduct] = useState({
@@ -157,7 +184,7 @@ const Page = () => {
 
               <div className="sm:flex-col1 mt-10 flex">
                 <button
-                  onClick={handleRedirect}
+                  onClick={handleButtonClick}
                   className="max-w-xs flex-1 rounded-md border border-transparent bg-wizard py-3 px-8 text-base font-medium text-white hover:bg-hover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                 >
                   Unlock Info
